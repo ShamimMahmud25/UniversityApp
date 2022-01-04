@@ -1,0 +1,46 @@
+{
+  "notes": [
+    {
+      "title": "Yoshi's birthday bash",
+      "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "category": "reminders",
+      "id": 1
+    },
+    {
+      "title": "Complete my ninja training",
+      "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.",
+      "category": "work",
+      "id": 2
+    },
+    {
+      "title": "Order a pizza!",
+      "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "category": "todos",
+      "id": 3
+    },
+    {
+      "title": "Visit Rajshahi",
+      "details": "I want to go to Rajshahi. If everything goes in my Favour, Inshallah I will go to Rajshahi Next Month. In Rajshahi, I have to cancel my sit in the hall. I have to meet with my friends and with my special person. I will try to visit the place I missed when I was in Rajshahi. Maybe this will be my last visit as a student in Rajshahi.",
+      "category": "reminder",
+      "id": 4
+    },
+    {
+      "title": "Visit Padma Bridge",
+      "details": "We want to visit Jalal's house next month. I was planning to visit Monsigoang for a couple of month, but Jalal is too busy to welcome us. If everything goes fine, we will go to visit Jalal's home in the first week of December.",
+      "category": "reminder",
+      "id": 5
+    },
+    {
+      "title": "Pay Wifi Bill",
+      "details": "500 tk need to pay the Internet Service Provider. May be the last date will be 1 December 2021.",
+      "category": "money",
+      "id": 6
+    },
+    {
+      "title": "Job Preparation",
+      "details": "Need to prepare for Job. I think I need to study for a job from now. I know something but I need to learn how to implement it perfectly.I think I need to work with react and node js .For this I need to create some project.",
+      "category": "work",
+      "id": 7
+    }
+  ]
+}

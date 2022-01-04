@@ -1,0 +1,47 @@
+
+:root {
+    --primary: #ddd;
+    --dark: #333;
+    --light:#fff;
+    --shadow:0 1px rgba(104,104,104,0.8);
+    --drawerWidth:240px;
+}
+.page {
+    background: "#f9f9f9";
+    width: 100%;
+    padding: 20px;
+  }
+  .drawer {
+    width: var(--drawerWidth);
+  }
+  .drawPaper {
+    width: var(--drawerWidth);
+  }
+  .container {
+    display: flex;
+  }
+  .active {
+    background: "#f4f4f4";
+  }
+  .title {
+      padding:25px;
+  }
+  .appbar {
+    width: 60%;
+  }
+  .typo {
+    color:'#000';
+    background:'#fff'
+  }
+  .toolbar {
+    margin-top:150px;
+  }
+  .data {
+    flex-grow:1;
+    text-align:center;
+    font-size:40px;
+    height:150px;
+  }
+  .avatar{
+    margin-left: 20px;
+  }
