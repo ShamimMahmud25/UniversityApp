@@ -6,8 +6,8 @@ const TestComponent=(props)=> {
  
   return (
     <div >
-      <p>Firstname :{props.userData.fname} </p>
-      <p>Lastname :{props.userData.lname} </p>
+      <p>Firstname :{props.userData.firstName} </p>
+      <p>Lastname :{props.userData.lastName} </p>
       <p>Email :{props.userData.email} </p>
       <p>Address :{props.userData.address} </p>  
       <p>Mobile :{props.userData.mobile} </p>

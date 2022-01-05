@@ -1,12 +1,12 @@
 import { UPDATEUSER_INFO } from "./action";
 
 const initialState={
-    fname:'',
-    lname:'',
+    firstName:'',
+    lastName:'',
     address:'',
     mobile:'',
     session:'',
-    sID:'',
+    studentID:'',
     email:''
 
 }
@@ -15,12 +15,12 @@ function userReducer(state = initialState, action) {
 switch(action.type){
     case UPDATEUSER_INFO: return{
         ...state,
-        fname:action.userData.fname,
-        lname:action.userData.lname,
+        firstName:action.userData.firstName,
+        lastName:action.userData.lastName,
         address:action.userData.address,
         mobile:action.userData.mobile,
         session:action.userData.session,
-        sID:action.userData.sID,
+        studentID:action.userData.studentID,
         email:action.userData.email
         
     }

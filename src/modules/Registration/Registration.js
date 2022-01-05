@@ -53,14 +53,14 @@ const useStyles = makeStyles((theme) => {
 const RegistrationComponent=(props)=> {
   const classes = useStyles();
   const history=useHistory();
-  const [fname, setFname] = useState('');
-  const [lname, setLname] = useState('');
+  const [firstName, setfirstName] = useState('');
+  const [lastName, setlastName] = useState('');
   const [address, setAddress] = useState('')
   const [mobile, setMobile] = useState('')
   const [session, setSession] = useState('2000-2001')
   const [password, setPassword] = useState('')
   const [confirmPassword, setconfirmPassword] = useState('')
-  const [sID, setSID] = useState('')
+  const [studentID, setstudentID] = useState('')
   const [errorMessage, setErrorMessage] = useState('');
   const [email,setEmail]=useState(props.signupData.emailAddress);
   const handleSubmit = (event) => {
@@ -69,28 +69,28 @@ const RegistrationComponent=(props)=> {
       setErrorMessage('Password Do Not Match');
     }
     const Data={
-      fname,
-      lname,
+      firstName,
+      lastName,
       address,
       mobile,
       session,
       password,
-      sID,
+      studentID,
       email
     }
     props.dispatch(updateUserInfo(Data));
     console.log("Registration form is submitted");
-    console.log({fname,lname,address,mobile,session,password,sID,email})
+    console.log({firstName,lastName,address,mobile,session,password,studentID,email})
     history.push("/home");
   };
-  const handleFname=(e)=>{
-      setFname(e.target.value)
+  const handlefirstName=(e)=>{
+      setfirstName(e.target.value)
   }
   const handleEmail=(e)=>{
     setEmail(e.target.value)
 }
-  const handleLname=(e)=>{
-    setLname(e.target.value)
+  const handlelastName=(e)=>{
+    setlastName(e.target.value)
 }
 const handleAdress=(e)=>{
     setAddress(e.target.value)
@@ -106,8 +106,8 @@ const handlePassword=(e)=>{
     setPassword(e.target.value)
  
 }
-const handleSID=(e)=>{
-    setSID(e.target.value)
+const handlestudentID=(e)=>{
+    setstudentID(e.target.value)
 }
 const handleConfirmPassword=(e)=>{
     setconfirmPassword(e.target.value)
@@ -129,25 +129,25 @@ const handleConfirmPassword=(e)=>{
         <div className={classes.heading}>
           <h1>Registraion Form</h1>
         </div>
-          <label htmlFor="fname" className={classes.label}>*First Name </label>
+          <label htmlFor="firstName" className={classes.label}>*First Name </label>
           <input
             type="text"
-            name="fname"
-            id="fname"
+            name="firstName"
+            id="firstName"
             placeholder="e.g. Shamim"
             className={classes.input}
-            value={fname}
-            onChange={handleFname}
+            value={firstName}
+            onChange={handlefirstName}
             required
           />
           <br />
-          <label htmlFor="lname" className={classes.label}>*Last Name </label>
+          <label htmlFor="lastName" className={classes.label}>*Last Name </label>
           <input
             type="text"
-            name="lname"
-            id="lname"
-            value={lname}
-            onChange={handleLname}
+            name="lastName"
+            id="lastName"
+            value={lastName}
+            onChange={handlelastName}
             placeholder="e.g. Mahmud"
             className={classes.input}
             required
@@ -209,13 +209,13 @@ const handleConfirmPassword=(e)=>{
               <option value='2021-2022'>2021-2022</option>
               <option value='2023-2024'>2023-2024</option>
           </select>
-          <label htmlFor="sid" className={classes.label}>Student ID</label>
+          <label htmlFor="studentID" className={classes.label}>Student ID</label>
           <input
             type="text"
-            name="sid"
-            id="sid"
-            value={sID}
-            onChange={handleSID}
+            name="studentID"
+            id="studentID"
+            value={studentID}
+            onChange={handlestudentID}
             placeholder="e.g. 1610xxxxxx"
             className={classes.input}
           />

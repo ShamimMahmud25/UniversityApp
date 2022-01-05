@@ -24,7 +24,7 @@ const HeaderComponent=(props)=> {
   return (
     <>
       <Typography className={classes.data}>Welcome To MyWebPage</Typography>
-      <Typography>{props.userData.fname}</Typography>
+      <Typography>{props.userData.firstName}</Typography>
       <Avatar src="/mario-av.png" className={classes.avatar} />
     </>
   );
