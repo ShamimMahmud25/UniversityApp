@@ -50,8 +50,8 @@ const useStyles = makeStyles((theme) => {
 
 const RegistrationComponent=(props)=> {
   const classes = useStyles();
-  const [fname, setFname] = useState('');
-  const [lname, setLname] = useState('');
+  const [firstName, setfirstName] = useState('');
+  const [lastName, setlastName] = useState('');
   const [address, setAddress] = useState('')
   const [mobile, setMobile] = useState('')
   const [session, setSession] = useState('2000-2001')
@@ -66,13 +66,13 @@ const RegistrationComponent=(props)=> {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Registration form is submitted");
-    console.log({fname,lname,address,mobile,session,password,sID})
+    console.log({firstName,lastName,address,mobile,session,password,sID})
   };
-  const handleFname=(e)=>{
-      setFname(e.target.value)
+  const handlefirstName=(e)=>{
+      setfirstName(e.target.value)
   }
-  const handleLname=(e)=>{
-    setLname(e.target.value)
+  const handlelastName=(e)=>{
+    setlastName(e.target.value)
 }
 const handleAdress=(e)=>{
     setAddress(e.target.value)
@@ -111,25 +111,25 @@ const handleConfirmPassword=(e)=>{
         <div className={classes.heading}>
           <h1>Registraion Form</h1>
         </div>
-          <label htmlFor="fname" className={classes.label}>*First Name </label>
+          <label htmlFor="firstName" className={classes.label}>*First Name </label>
           <input
             type="text"
-            name="fname"
-            id="fname"
+            name="firstName"
+            id="firstName"
             placeholder="e.g. Shamim"
             className={classes.input}
-            value={fname}
-            onChange={handleFname}
+            value={firstName}
+            onChange={handlefirstName}
             required
           />
           <br />
-          <label htmlFor="lname" className={classes.label}>*Last Name </label>
+          <label htmlFor="lastName" className={classes.label}>*Last Name </label>
           <input
             type="text"
-            name="lname"
-            id="lname"
-            value={lname}
-            onChange={handleLname}
+            name="lastName"
+            id="lastName"
+            value={lastName}
+            onChange={handlelastName}
             placeholder="e.g. Mahmud"
             className={classes.input}
             required
