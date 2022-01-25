@@ -6,6 +6,7 @@ import {getUserReducer} from './reducer';
 import {updateUserInfo} from './action'
 import { connect } from "react-redux";
 import { useHistory } from 'react-router-dom';
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -79,6 +80,7 @@ const RegistrationComponent=(props)=> {
       email
     }
     props.dispatch(updateUserInfo(Data));
+    axios.post("http://localhost:2021/signup",Data).then((response)=>console.log(response.data));
     console.log("Registration form is submitted");
     console.log({firstName,lastName,address,mobile,session,password,studentID,email})
     history.push("/home");
