@@ -5,5 +5,5 @@ export const userLogin = () => ({
   });
 
   export const userLogout = () => ({
-    type:USER_LOGGEDIN
+    type:USER_LOGOUT
   });

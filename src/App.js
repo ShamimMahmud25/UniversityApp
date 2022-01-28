@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Create from "./pages/Create";
 import { createTheme, ThemeProvider } from "@material-ui/core";
 import { purple } from "@material-ui/core/colors";
-import Signin from "./modules/Login/Login"
+import {Login} from "./modules/Login/Login"
 import {Signup} from "./modules/SignUp/Signup"
 import Forgetpassword from "./components/Forgetpassword";
 import {Registration} from "./modules/Registration/Registration"
@@ -47,7 +47,7 @@ function App() {
               <Signup/>
             </Route>
             <Route path="/login">
-              <Signin/>
+              <Login/>
             </Route>
             <Route path="/forget-password">
               <Forgetpassword/>

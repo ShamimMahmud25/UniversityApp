@@ -75,6 +75,11 @@ export default function Menu() {
         text: "Logout",
         icon: <LogoutIcon color="secondary" />,
         path: "/login",
+      },
+      {
+        text: "Test",
+        icon: <LogoutIcon color="secondary" />,
+        path: "/test",
       }
    
     ];
