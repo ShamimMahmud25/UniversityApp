@@ -2,10 +2,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Create from "./pages/Create";
 import { createTheme, ThemeProvider } from "@material-ui/core";
 import { purple } from "@material-ui/core/colors";
-import Signin from "./modules/Login/Login"
+import {Login} from "./modules/Login/Login"
 import {Signup} from "./modules/SignUp/Signup"
 import Forgetpassword from "./components/Forgetpassword";
 import {Registration} from "./modules/Registration/Registration"
+import { NewRegistration } from "./modules/Registration/NewRegistration";
 import { Test } from "./modules/Registration/TestComponent";
 //import WithLayout from "./components/WithLayout";
 import { Provider } from "react-redux";
@@ -47,7 +48,7 @@ function App() {
               <Signup/>
             </Route>
             <Route path="/login">
-              <Signin/>
+              <Login/>
             </Route>
             <Route path="/forget-password">
               <Forgetpassword/>
@@ -60,6 +61,9 @@ function App() {
             </Route>
             <Route path="/home">
               <Home/>
+            </Route>
+            <Route path="/new">
+              <NewRegistration/>
             </Route>
           </Switch>
       </Router>

@@ -1,11 +1,10 @@
-import * as React from 'react';
+import  React ,{useState} from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
-//import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import {CircularProgress,makeStyles} from '@material-ui/core';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -15,34 +14,40 @@ import { connect } from "react-redux";
 //import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { updateSignUpEmail } from './action';
+import axios from 'axios';
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const theme = createTheme();
-
+const useStyles=makeStyles(()=>{
+  return{  
+    loading: {
+    color: "white",
+    position: "absolute"
+  }
+}
+})
 const SignupComponent=props=> {
- // const [email, setEmail] = useState('')
-  // console.log(props);
+  const classes=useStyles();
+  const [email,setEmail]=useState("");
+  const [loading,setLoading]=useState(false);
   const history=useHistory();
   const handleSubmit = (event) => {
     event.preventDefault();
-    history.push("/register");
-   
+    setLoading(true);
+    props.dispatch(updateSignUpEmail(email.trim()));
+    const body={email:email.trim()};
+    axios.post("http://localhost:2021/email/validate", body).then((response) => {
+       console.log(response);
+      setLoading(false);
+      history.push("/register")
+  }).catch((error) =>{
+    setLoading(false);
+    history.push("/login"); 
+
+  });
   };
   const handleEmailChange=(event)=>{
-    //setEmail(event.target.value)
-    props.dispatch(updateSignUpEmail(event.target.value))
+    setEmail(event.target.value);
   }
 
   return (
@@ -71,7 +76,7 @@ const SignupComponent=props=> {
               id="email"
               label="Email Address"
               name="email"
-              value={props.signupData.email}
+              value={email}
               onChange={handleEmailChange}
               autoFocus
             />
@@ -81,11 +86,20 @@ const SignupComponent=props=> {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign UP
+               {loading ? (
+                <CircularProgress
+                  variant="indeterminate"
+                  disableShrink
+                  className={classes.loading}
+                  size={24}
+                  thickness={5}
+                />
+              ) : (
+                "Signup"
+              )}
             </Button>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
   );
