@@ -6,6 +6,7 @@ import {Login} from "./modules/Login/Login"
 import {Signup} from "./modules/SignUp/Signup"
 import Forgetpassword from "./components/Forgetpassword";
 import {Registration} from "./modules/Registration/Registration"
+import { NewRegistration } from "./modules/Registration/NewRegistration";
 import { Test } from "./modules/Registration/TestComponent";
 //import WithLayout from "./components/WithLayout";
 import { Provider } from "react-redux";
@@ -60,6 +61,9 @@ function App() {
             </Route>
             <Route path="/home">
               <Home/>
+            </Route>
+            <Route path="/new">
+              <NewRegistration/>
             </Route>
           </Switch>
       </Router>

@@ -78,7 +78,7 @@ const RegistrationComponent = (props) => {
       session,
       password,
       studentID,
-      email,
+      email:email.trim(),
     };
     axios.post("http://localhost:2021/signup", Data)
     .then(response => {
