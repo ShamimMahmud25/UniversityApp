@@ -78,4 +78,76 @@ export const validate = (Name, value) => {
         };
     }
   }
+  else if(Name==="Mobile"){
+    if(!/^\s*$/.test(value)){
+      if(!/^[0-9]{11}$/.test(value)){
+        return {
+          isValid: false,
+          message: "Enter Valid Mobile Number",
+        }
+      }
+      else
+      {
+        return {
+          isValid: true,
+          message: "",
+        }
+      }
+     
+  }
+  else {
+    return {
+        isValid: false,
+        message: "Mobile Number is Required",
+      };
+  }
+  }
+  else if(Name==="StudentID"){
+    if(!/^\s*$/.test(value)){
+      if(!/^[0-9]{10}$/.test(value)){
+        return {
+          isValid: false,
+          message: "Enter Valid StudentID or keep it empty",
+        }
+      }
+      else
+      {
+        return {
+          isValid: true,
+          message: "",
+        }
+      }
+     
+  }
+  else {
+    return {
+        isValid: true,
+        message: "",
+      };
+  }
+  }
+  else if(Name==="Password"){
+    if(!/^\s*$/.test(value)){
+      if(String(value).length<8){
+        return {
+          isValid: false,
+          message: "Password must be atleast 8 characters!",
+        }
+      }
+      else
+      {
+        return {
+          isValid: true,
+          message: "",
+        }
+      }
+     
+  }
+  else {
+    return {
+        isValid: false,
+        message: "Password Required",
+      };
+  }
+  }
 };

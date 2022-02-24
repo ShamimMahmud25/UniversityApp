@@ -5,7 +5,7 @@ import { purple } from "@material-ui/core/colors";
 import {Login} from "./modules/Login/Login"
 import {Signup} from "./modules/SignUp/Signup"
 import Forgetpassword from "./components/Forgetpassword";
-import {Registration} from "./modules/Registration/Registration"
+// import {Registration} from "./modules/Registration/Registration"
 import { NewRegistration } from "./modules/Registration/NewRegistration";
 import { Test } from "./modules/Registration/TestComponent";
 //import WithLayout from "./components/WithLayout";
@@ -53,16 +53,16 @@ function App() {
             <Route path="/forget-password">
               <Forgetpassword/>
             </Route>
-            <Route path="/register">
+            {/* <Route path="/register">
               <Registration/>
-            </Route>
+            </Route> */}
             <Route path="/test">
               <Test/>
             </Route>
             <Route path="/home">
               <Home/>
             </Route>
-            <Route path="/new">
+            <Route path="/register">
               <NewRegistration/>
             </Route>
           </Switch>

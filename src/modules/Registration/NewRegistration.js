@@ -96,6 +96,9 @@ const useStyles = makeStyles((theme) => {
     loading: {
       color: "white",
       position: "absolute",
+    },
+    continueButton :{
+      background:'green'
     }
   };
 });
@@ -119,10 +122,10 @@ const NewRegistrationComponent = (props) => {
     lastName:null,
     address:null,
     mobile:null,
-    session:null,
+    session:false,
     password:null,
-    studentID:null,
-    email:null,
+    studentID:false,
+    email:false,
     confirmPassword:null
   })
   const [errorMessage,setErrorMessage]=useState({
@@ -138,6 +141,7 @@ const NewRegistrationComponent = (props) => {
   })
   const handleSubmit = (event) => {
     event.preventDefault();
+    setLoading(true);
     const Data = {
       firstName,
       lastName,
@@ -154,9 +158,11 @@ const NewRegistrationComponent = (props) => {
         props.dispatch(updateUserInfo(Data));
         console.log(response.status);
         setRegistrationError("");
+        setLoading(false);
         history.push("/home");
       })
       .catch((error) => {
+        setLoading(false);
         setRegistrationError(error.response.data.message);
         console.log(error.response.data);
       });
@@ -193,16 +199,6 @@ const NewRegistrationComponent = (props) => {
     setstudentID(e.target.value);
     setRegistrationError("");
   };
-  const handleConfirmPassword = (e) => {
-    setconfirmPassword(e.target.value);
-    setRegistrationError("");
-
-    if (e.target.value !== password) {
-      //setErrorMessage("Password Do Not Match");
-    } else {
-      //setErrorMessage("");
-    }
-  };
   const validationCheck=(field,value,Name)=>{
     const validatedResult=validate(Name,value);
     setError((prevState)=>({
@@ -214,6 +210,32 @@ const NewRegistrationComponent = (props) => {
         [field]:validatedResult.message
       }))
     
+  }
+  const validateConfirmPassword=(field,value,checkwith)=>{
+    if(value!==checkwith){
+      setError((prevState)=>({
+        ...prevState,
+         [field]:true
+      }));
+      setErrorMessage((prevState)=>({
+      ...prevState,
+      [field]:"Password do not match"
+    }))
+    }
+    else {
+      setError((prevState)=>({
+        ...prevState,
+         [field]:false
+      }));
+      setErrorMessage((prevState)=>({
+      ...prevState,
+      [field]:""
+    }))
+    }
+  }
+  const hasNoError=()=>{
+    return (error.firstName===false && error.lastName===false && error.address===false && error.email===false &&
+    error.mobile===false && error.studentID===false && error.password===false && error.confirmPassword===false); 
   }
 
   return (
@@ -229,6 +251,7 @@ const NewRegistrationComponent = (props) => {
             <TextField
               label="FirstName"
               value={firstName}
+              autoComplete="off"
               onChange={handlefirstName}
                onBlur={()=>validationCheck("firstName",firstName,"FirstName")}
               size="small"
@@ -236,12 +259,14 @@ const NewRegistrationComponent = (props) => {
               variant="outlined"
               error={error.firstName}
               helperText={errorMessage.firstName}
+              disabled={loading}
             ></TextField>
           </Grid>
           <Grid item xs={12}>
             <TextField
               label="LastName"
               value={lastName}
+              autoComplete="off"
               onChange={handlelastName}
               onBlur={()=>validationCheck("lastName",lastName,"LastName")}
               size="small"
@@ -249,6 +274,7 @@ const NewRegistrationComponent = (props) => {
               variant="outlined"
               error={error.lastName}
               helperText={errorMessage.lastName}
+              disabled={loading}
             ></TextField>
           </Grid>
           <Grid item xs={12}>
@@ -262,6 +288,7 @@ const NewRegistrationComponent = (props) => {
               variant="outlined"
               error={error.address}
               helperText={errorMessage.address}
+              disabled={loading}
             ></TextField>
           </Grid>
           <Grid item xs={12}>
@@ -275,6 +302,7 @@ const NewRegistrationComponent = (props) => {
               variant="outlined"
               error={error.email}
               helperText={errorMessage.email}
+              disabled={loading}
             ></TextField>
           </Grid>
           <Grid item xs={12}>
@@ -282,9 +310,13 @@ const NewRegistrationComponent = (props) => {
               label="Mobile Number"
               value={mobile}
               onChange={handleMobile}
+              onBlur={()=>validationCheck("mobile",mobile,"Mobile")}
               size="small"
               fullWidth
               variant="outlined"
+              error={error.mobile}
+              helperText={errorMessage.mobile}
+              disabled={loading}
             ></TextField>
           </Grid>
           <Grid item xs={12}>
@@ -296,6 +328,7 @@ const NewRegistrationComponent = (props) => {
               size="small"
               fullWidth
               variant="outlined"
+              disabled={loading}
             >
                  {sessions.map((option) => (
             <MenuItem key={option.value} value={option.value}>
@@ -309,9 +342,13 @@ const NewRegistrationComponent = (props) => {
               label="Studen ID"
               value={studentID}
               onChange={handlestudentID}
+              onBlur={()=>validationCheck("studentID",studentID,"StudentID")}
               size="small"
               fullWidth
               variant="outlined"
+              error={error.studentID}
+              helperText={errorMessage.studentID}
+              disabled={loading}
             ></TextField>
           </Grid>
           <Grid item xs={12}>
@@ -319,19 +356,31 @@ const NewRegistrationComponent = (props) => {
               label="Password"
               value={password}
               onChange={handlePassword}
+              onBlur={()=>validationCheck("password",password,"Password")}
               size="small"
               fullWidth
+              type="password"
               variant="outlined"
+              error={error.password}
+              helperText={errorMessage.password}
+              disabled={loading}
             ></TextField>
           </Grid>
           <Grid item xs={12}>
             <TextField
               label="Confirm Password"
               value={confirmPassword}
-              onChange={handleConfirmPassword}
+              type="password"
+              onChange={(event)=>{
+                setconfirmPassword(event.target.value);
+                validateConfirmPassword("confirmPassword",event.target.value,password);
+              }}
               size="small"
               fullWidth
               variant="outlined"
+              error={error.confirmPassword}
+              helperText={errorMessage.confirmPassword}
+              disabled={loading}
             ></TextField>
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -339,7 +388,9 @@ const NewRegistrationComponent = (props) => {
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
+              className={classes.continueButton}
+              onClick={handleSubmit}
+              disabled={loading ||!hasNoError()}
             >
               {loading ? (
                 <CircularProgress
@@ -353,6 +404,9 @@ const NewRegistrationComponent = (props) => {
                 "Continue"
               )}
             </Button>
+            <div className={classes.errormessage}>
+            {registrationError}
+          </div>
           </Grid>
         </Grid>
       </Grid>
