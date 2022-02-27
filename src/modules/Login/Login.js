@@ -16,7 +16,6 @@ import { makeStyles } from '@mui/styles'
 import { useHistory } from 'react-router-dom';
 import axios from "axios";
 import { updateUserInfo } from "../Registration/action";
-import { getUserReducer } from "../Registration/reducer"
 import { getSignupReducer } from '../SignUp/reducer';
 const useStyles = makeStyles({
   loginButton: {
@@ -167,7 +166,6 @@ const LoginInComponent = (props) => {
 }
 const mapStateToProps = (state) => {
   return {
-    userData: getUserReducer(state),
     signupData: getSignupReducer(state),
   };
 };

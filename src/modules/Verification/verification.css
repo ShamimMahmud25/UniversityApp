@@ -1,0 +1,113 @@
+.loginContainer {
+    background-color: #fff;
+    justify-content: center;
+    height: 100vh;
+    
+}
+.Emailverification .formContainer {
+        margin: 5% 25% 0% 25%;
+        font-size: 15px;
+        background: #e1f8ce;
+        border-radius: 10px;
+        box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, .4);
+        display: flex;
+        flex-direction: row;
+        min-height: 350px;
+}
+ .Emailverification .heading {
+    text-align: left;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    color:#0079bf;
+    max-height: 150px;
+    margin-bottom: 20px;
+  }
+.Emailverification .loading {
+    color: white;
+    position: "absolute";
+  }
+.Emailverification .emailInput {
+    margin:0% 25% 0% 25%;
+}
+.Emailverification .codeInput {
+    margin:0% 25% 0% 25%;
+}
+.Emailverification .buttonclass {
+    margin:0% 25% 0% 25%;
+    color:#0079bf !important;
+}
+.Emailverification .continueButton{
+    background-color: aqua ;
+    color:black !important;
+    font-weight: 400;
+    font-size: large;
+}
+.Emailverification .continueButton :disabled{
+    background-color:rgba(0, 0, 0, .26);
+}
+@media screen and (max-width: 520px) {
+    .Emailverification .formContainer {
+        margin: 5% 5% 0% 5%;
+        font-size: 15px;
+        background: #e1f8ce;
+        border-radius: 10px;
+        box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, .4);
+        display: flex;
+        flex-direction: row;
+        max-height: 300px;
+}
+.Emailverification .emailInput {
+    margin:0% 6% 0% 6%;
+}
+.Emailverification .codeInput {
+    margin:0% 6% 0% 6%;
+}
+.Emailverification .buttonclass {
+    margin:0% 5% 0% 5%;
+    color:#0079bf !important;
+}
+  }
+  @media screen and (max-width: 920px) {
+    .Emailverification .formContainer {
+        margin: 10% 15% 0% 15%;
+        font-size: 15px;
+        background: #e1f8ce;
+        border-radius: 10px;
+        box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, .4);
+        display: flex;
+        flex-direction: row;
+        max-height: 300px;
+}
+.Emailverification .emailInput {
+    margin:0% 13% 0% 13%;
+}
+.Emailverification .codeInput {
+    margin:0% 13% 0% 13%;
+}
+.Emailverification .buttonclass {
+    margin:0% 10% 0% 10%;
+    color:#0079bf !important;
+}
+  }
+  @media screen and (max-width: 480px) {
+    .Emailverification .formContainer {
+        margin: 10% 3% 0% 3%;
+        font-size: 15px;
+        background: #e1f8ce;
+        border-radius: 10px;
+        box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, .4);
+        display: flex;
+        flex-direction: row;
+        max-height: 300px;
+}
+.Emailverification .emailInput {
+    margin:0% 0% 0% 0%;
+}
+.Emailverification .codeInput {
+    margin:0% 0% 0% 0%;
+}
+.Emailverification .buttonclass {
+    margin:0% 0% 0% 0%;
+    color:#0079bf !important;
+}
+  }

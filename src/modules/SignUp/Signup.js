@@ -27,6 +27,7 @@ const useStyles=makeStyles(()=>{
 }
 })
 const SignupComponent=props=> {
+  console.log(props);
   const classes=useStyles();
   const [email,setEmail]=useState("");
   const [loading,setLoading]=useState(false);
