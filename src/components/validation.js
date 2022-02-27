@@ -150,4 +150,28 @@ export const validate = (Name, value) => {
       };
   }
   }
+  else if(Name==="Code"){
+    if(!/^\s*$/.test(value)){
+      if(String(value).length!==6){
+        return {
+          isValid: false,
+          message: "Code must be 6 digits!",
+        }
+      }
+      else
+      {
+        return {
+          isValid: true,
+          message: "",
+        }
+      }
+     
+  }
+  else {
+    return {
+        isValid: false,
+        message: "Code Required",
+      };
+  }
+  }
 };

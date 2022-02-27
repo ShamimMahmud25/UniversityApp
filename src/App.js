@@ -2,11 +2,13 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Create from "./pages/Create";
 import { createTheme, ThemeProvider } from "@material-ui/core";
 import { purple } from "@material-ui/core/colors";
-import {Login} from "./modules/Login/Login"
-import {Signup} from "./modules/SignUp/Signup"
+// import {Login} from "./modules/Login/Login";
+import {LoginNew} from "./modules/Login/LoginNew"
+ import {Signup} from "./modules/SignUp/Signup"
 import Forgetpassword from "./components/Forgetpassword";
-// import {Registration} from "./modules/Registration/Registration"
+import {SignupNew} from "./modules/SignUp/SignupNew";
 import { NewRegistration } from "./modules/Registration/NewRegistration";
+import  {Emailverification} from "./modules/Verification/Emailverification"
 import { Test } from "./modules/Registration/TestComponent";
 //import WithLayout from "./components/WithLayout";
 import { Provider } from "react-redux";
@@ -36,35 +38,36 @@ function App() {
       <Router>
           <Switch>
             <Route exact path="/">
-              <Signup/>
+              <SignupNew/>
+            </Route>
+            <Route exact path="/signup">
+              <SignupNew/>
+            </Route>
+            <Route exact path="/register">
+              <NewRegistration/>
+            </Route>
+            <Route exact path="/login">
+              <LoginNew/>
+            </Route>
+            <Route exact path="/forget-password">
+              <Forgetpassword/>
+            </Route>
+            <Route exact path="/verify/email">
+              <Emailverification/>
             </Route>
             <Route exact path="/home">
               <Home/>
             </Route>
-            <Route path="/create">
+            <Route exact path="/create">
               <Create />
             </Route>
-            <Route path="/signup">
+             <Route path="/new">
               <Signup/>
             </Route>
-            <Route path="/login">
-              <Login/>
-            </Route>
-            <Route path="/forget-password">
-              <Forgetpassword/>
-            </Route>
-            {/* <Route path="/register">
-              <Registration/>
-            </Route> */}
             <Route path="/test">
               <Test/>
             </Route>
-            <Route path="/home">
-              <Home/>
-            </Route>
-            <Route path="/register">
-              <NewRegistration/>
-            </Route>
+            
           </Switch>
       </Router>
     </ThemeProvider>
