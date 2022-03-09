@@ -1,4 +1,4 @@
-import { UPDATEUSER_INFO } from "./action";
+import { UPDATEUSER_INFO,USER_EMAIL_VERIFIED } from "./action";
 
 const initialState={
     firstName:'',
@@ -7,7 +7,8 @@ const initialState={
     mobile:'',
     session:'',
     studentID:'',
-    email:''
+    email:'',
+    isEmailVerifed:false
 
 }
 
@@ -21,8 +22,13 @@ switch(action.type){
         mobile:action.userData.mobile,
         session:action.userData.session,
         studentID:action.userData.studentID,
-        email:action.userData.email
+        email:action.userData.email,
+        isEmailVerifed:action.userData.isEmailVerifed
         
+    }
+    case USER_EMAIL_VERIFIED: return {
+        ...state,
+        isEmailVerifed:true
     }
     default: return state
 }

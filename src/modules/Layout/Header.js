@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => {
 });
 
 const HeaderComponent=(props)=> {
-  console.log(props.userData);
+  // console.log(props.userData);
   const classes = useStyles();
   return (
     <>

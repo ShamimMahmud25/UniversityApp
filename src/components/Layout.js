@@ -79,7 +79,7 @@ export default function Layout({ children }) {
     {
       text: "Logout",
       icon: <LogoutIcon color="secondary" />,
-      path: "/login",
+      path: "/",
     }
  
   ];

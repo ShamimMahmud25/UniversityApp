@@ -9,18 +9,33 @@ import {
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getSignupReducer } from '../SignUp/reducer';
-import {validate} from "../../components/validation";
-// import axios from "axios";
+import {userEmailVerified} from "../Registration/action";
+import {validate} from "../../components/validation"
+import axios from "axios";
 import "./verification.css";
 class EmailVerificationComponent extends Component {
   constructor(props) {
     super(props);
+    
     this.state = { code: "", loading: false, error: null, errorMessage: "",email:this.props.signupData.emailAddress };
   }
   componentDidMount(){
-    //   if(!this.state.email){
-    //     this.props.history.push("/signup");
-    //   }
+      if(!this.state.email){
+        return this.props.history.push("/signup");
+      }
+      else{
+        axios
+        .post("http://localhost:2025/sendOTP", {email:this.state.email})
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          this.setState((prev) => {
+            return { ...prev,errorMessage:error.response.data.message,error:true };
+          });
+        });
+      }
+    //console.log(this.props.signupData.emailAddress);
   }
   handleVeficationCode = (event) => {
     this.setState((prev) => {
@@ -29,7 +44,30 @@ class EmailVerificationComponent extends Component {
   };
   handleSubmit = (event) => {
     event.preventDefault();
-     console.log("Email verified!!");
+    this.setState((prev) => {
+      return { ...prev, loading: true };
+    });
+  const body = {email:this.state.email,otp:this.state.code };
+  axios.post("http://localhost:2025/verifyEmail", body).then((response) => {
+    axios.post("http://localhost:2021/emailVerificationInfo",{email:this.state.email}).then((resposne)=>{
+      this.props.dispatch( userEmailVerified());
+      this.setState((prev) => {
+        return { ...prev, loading: false };
+      });
+      this.props.history.push("/home");
+    }).catch((error)=>{
+      this.setState((prev) => {
+        return { ...prev, loading: false,errorMessage:error.response.data.message,error:true };
+      });
+    })
+    
+  }
+  ).catch((error) => {
+      this.setState((prev) => {
+          return { ...prev, loading: false,errorMessage:error.response.data.message,error:true };
+        });
+  });
+     
   };
   hasNoError=()=>{
       return this.state.error===false;
@@ -52,7 +90,7 @@ class EmailVerificationComponent extends Component {
       <Grid container className="Emailverification EmailverificationContainer">
         <Grid container item spacing={1} className="formContainer">
           <Grid item xs={12} sm={12}>
-            <Typography variant="p" className="heading">
+            <Typography  className="heading">
               6 digits verificationcode has been send to your email.Plese verify your email.
             </Typography>
           </Grid>
