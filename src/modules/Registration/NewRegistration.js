@@ -159,7 +159,7 @@ const NewRegistrationComponent = (props) => {
         console.log(response.status);
         setRegistrationError("");
         setLoading(false);
-        history.push("/home");
+        history.push("/verify/email");
       })
       .catch((error) => {
         setLoading(false);

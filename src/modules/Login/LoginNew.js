@@ -37,16 +37,22 @@ class LoginNewComponent extends Component {
       //console.log(response);
       axios.post("http://localhost:2021/user", {email:this.state.email}).then((response) => {
         this.props.dispatch(updateUserInfo(response.data.data));
+        this.setState((prev) => {
+          return { ...prev, loading: false };
+        });
+        // console.log(response.data.data.isEmailVarified);
+        if(!response.data.data.isEmailVarified){
+          this.props.history.push("/verify/email");
+        }
+        else {
+          this.props.history.push("/home");
+        }
+        
       }).catch((error) => {
         this.setState((prev) => {
             return { ...prev, loading: false,errorMessage:error.response.data.message,error:true };
           });
       });
-
-      this.setState((prev) => {
-        return { ...prev, loading: true };
-      });
-      this.props.history.push("/home");
     }
     ).catch((error) => {
         this.setState((prev) => {
