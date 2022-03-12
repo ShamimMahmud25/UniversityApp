@@ -9,6 +9,7 @@ import Forgetpassword from "./components/Forgetpassword";
 import {SignupNew} from "./modules/SignUp/SignupNew";
 import { NewRegistration } from "./modules/Registration/NewRegistration";
 import  {Emailverification} from "./modules/Verification/Emailverification"
+import {ResetPassword} from "./modules/ResetPassword/ResetPassword"
 import { Test } from "./modules/Registration/TestComponent";
 //import WithLayout from "./components/WithLayout";
 import { Provider } from "react-redux";
@@ -54,6 +55,9 @@ function App() {
             </Route>
             <Route exact path="/verify/email">
               <Emailverification/>
+            </Route>
+            <Route exact path="/resetpassword">
+              <ResetPassword/>
             </Route>
             <Route exact path="/home">
               <Home/>
