@@ -9,6 +9,7 @@ import {
     makeStyles
   } from "@material-ui/core";
   import { AddCircleOutlined,SubjectOutlined } from "@material-ui/icons";
+  import VpnKeyIcon from '@material-ui/icons/VpnKey';
   import { useHistory, useLocation } from "react-router-dom";
   import LogoutIcon from '@mui/icons-material/Logout';
   const drawerWidth = 240;
@@ -72,15 +73,21 @@ export default function Menu() {
         path: "/create",
       },
       {
-        text: "Logout",
-        icon: <LogoutIcon color="secondary" />,
-        path: "/login",
+        text: "ResetPassword",
+        icon: <VpnKeyIcon color="secondary" />,
+        path: "/resetpassword",
       },
       {
-        text: "Test",
+        text: "Logout",
         icon: <LogoutIcon color="secondary" />,
-        path: "/test",
-      }
+        path: "/signup",
+      },
+    
+      // {
+      //   text: "Test",
+      //   icon: <LogoutIcon color="secondary" />,
+      //   path: "/test",
+      // }
    
     ];
     return (
