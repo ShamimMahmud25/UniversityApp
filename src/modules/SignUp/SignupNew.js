@@ -12,6 +12,7 @@ import { validate } from "../../components/validation";
 import { withRouter } from "react-router-dom";
 import { updateSignUpEmail } from "./action";
 import axios from "axios";
+import {userServiceAPI} from "../../config/config";
 import "./signup.css";
 class SignupNewComponent extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class SignupNewComponent extends Component {
       this.props.dispatch(updateSignUpEmail(this.state.email.trim()));
       const body = { email: this.state.email.trim() };
       axios
-        .post("http://localhost:2021/email/validate", body)
+        .post(`${userServiceAPI}/email/validate`, body)
         .then((response) => {
           this.setState((prev) => {
             return { ...prev, loading: false };

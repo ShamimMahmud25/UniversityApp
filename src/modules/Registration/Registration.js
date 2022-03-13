@@ -7,6 +7,7 @@ import { updateUserInfo } from "./action";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
+import {userServiceAPI} from "../../config/config";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -80,7 +81,7 @@ const RegistrationComponent = (props) => {
       studentID,
       email:email.trim(),
     };
-    axios.post("http://localhost:2021/signup", Data)
+    axios.post(`${userServiceAPI}/signup`, Data)
     .then(response => {
           props.dispatch(updateUserInfo(Data));
           console.log(response.status);

@@ -12,6 +12,7 @@ import { getSignupReducer } from '../SignUp/reducer';
 import {userEmailVerified} from "../Registration/action";
 import {validate} from "../../components/validation"
 import axios from "axios";
+import {userServiceAPI,mailSendAPI} from "../../config/config";
 import "./verification.css";
 class EmailVerificationComponent extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class EmailVerificationComponent extends Component {
       }
       else{
         axios
-        .post("http://localhost:2025/sendOTP", {email:this.state.email})
+        .post(`${mailSendAPI}/sendOTP`, {email:this.state.email})
         .then((response) => {
           console.log(response);
         })
@@ -48,8 +49,8 @@ class EmailVerificationComponent extends Component {
       return { ...prev, loading: true };
     });
   const body = {email:this.state.email,otp:this.state.code };
-  axios.post("http://localhost:2025/verifyEmail", body).then((response) => {
-    axios.post("http://localhost:2021/emailVerificationInfo",{email:this.state.email}).then((resposne)=>{
+  axios.post(`${mailSendAPI}/verifyEmail`, body).then((response) => {
+    axios.post(`${userServiceAPI}/emailVerificationInfo`,{email:this.state.email}).then((resposne)=>{
       this.props.dispatch( userEmailVerified());
       this.setState((prev) => {
         return { ...prev, loading: false };

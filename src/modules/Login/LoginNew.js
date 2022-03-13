@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { updateUserInfo } from "../Registration/action";
 import { getSignupReducer } from "../SignUp/reducer";
+import {userServiceAPI} from "../../config/config";
 import axios from "axios";
 import "./login.css";
 class LoginNewComponent extends Component {
@@ -45,11 +46,11 @@ class LoginNewComponent extends Component {
     });
     const body = { email: this.state.email, password: this.state.password };
     axios
-      .post("http://localhost:2021/login", body)
+      .post(`${userServiceAPI}/login`, body)
       .then((response) => {
         //console.log(response);
         axios
-          .post("http://localhost:2021/user", { email: this.state.email })
+          .post(`${userServiceAPI}/user`, { email: this.state.email })
           .then((response) => {
             this.props.dispatch(updateUserInfo(response.data.data));
             this.setState((prev) => {

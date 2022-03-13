@@ -7,6 +7,7 @@ import { updateUserInfo } from "./action";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import {userServiceAPI} from "../../config/config";
 import { Grid, Typography, Button, CircularProgress, MenuItem} from "@material-ui/core";
 import { validate } from "../../components/validation";
 
@@ -153,7 +154,7 @@ const NewRegistrationComponent = (props) => {
       email,
     };
     axios
-      .post("http://localhost:2021/signup", Data)
+      .post(`${userServiceAPI}/signup`, Data)
       .then((response) => {
         props.dispatch(updateUserInfo(Data));
         console.log(response.status);

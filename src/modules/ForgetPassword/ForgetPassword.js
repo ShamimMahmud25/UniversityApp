@@ -11,6 +11,7 @@ import { withRouter } from "react-router-dom";
 import { getSignupReducer } from "../SignUp/reducer";
 import { validate } from "../../components/validation";
 import axios from "axios";
+import {userServiceAPI,mailSendAPI} from "../../config/config";
 import "./forgetpassword.css";
 class ForgetPasswordComponent extends Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class ForgetPasswordComponent extends Component {
       }
       else{
         axios
-        .post("http://localhost:2025/sendOTP", {email:this.state.email})
+        .post(`${mailSendAPI}/sendOTP`, {email:this.state.email})
         .then((response) => {
           console.log(response);
         })
@@ -101,7 +102,7 @@ class ForgetPasswordComponent extends Component {
       return { ...prev, loading: true };
     });
   const body = {email:this.state.email,otp:this.state.code };
-  axios.post("http://localhost:2025/verifyEmail", body).then((response) => {
+  axios.post(`${mailSendAPI}/verifyEmail`, body).then((response) => {
       this.setState((prev) => {
         return { ...prev, loading: false,isEmailVerified:true };
       });
@@ -133,7 +134,7 @@ class ForgetPasswordComponent extends Component {
           email:this.state.email,
           password:this.state.password,
       }
-          axios.post("http://localhost:2021/forgetPassword", body).then((response) => {
+          axios.post(`${userServiceAPI}/forgetPassword`, body).then((response) => {
             this.setState((prev) => {
                 return { ...prev, loading: false };
               });

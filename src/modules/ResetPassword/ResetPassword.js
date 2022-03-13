@@ -11,6 +11,7 @@ import { withRouter } from "react-router-dom";
 import { getSignupReducer } from "../SignUp/reducer";
 import { validate } from "../../components/validation";
 import axios from "axios";
+import {userServiceAPI} from "../../config/config";
 import "./resetpassword.css";
 class ResetPasswordComponent extends Component {
   constructor(props) {
@@ -79,7 +80,7 @@ class ResetPasswordComponent extends Component {
           password:this.state.password,
           newPassword:this.state.newPassword
       }
-      axios.post("http://localhost:2021/resetPassword", body).then((response) => {
+      axios.post(`${userServiceAPI}/resetPassword`, body).then((response) => {
         this.setState((prev) => {
             return { ...prev, loading: false };
           });
