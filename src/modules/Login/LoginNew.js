@@ -9,56 +9,84 @@ import {
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { updateUserInfo } from "../Registration/action";
-import { getSignupReducer } from '../SignUp/reducer';
+import { getSignupReducer } from "../SignUp/reducer";
 import axios from "axios";
 import "./login.css";
 class LoginNewComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = { password: "", loading: false, error: null, errorMessage: "",email:this.props.signupData.emailAddress };
+    this.state = {
+      password: "",
+      loading: false,
+      error: null,
+      errorMessage: "",
+      email: this.props.signupData.emailAddress,
+    };
   }
-  componentDidMount(){
-      if(!this.state.email){
-        this.props.history.push("/signup");
-      }
+  componentDidMount() {
+    if (!this.state.email) {
+      this.props.history.push("/signup");
+    }
   }
   handlePassword = (event) => {
     this.setState((prev) => {
-      return { ...prev, password: event.target.value,error:false,errorMessage:"" };
+      return {
+        ...prev,
+        password: event.target.value,
+        error: false,
+        errorMessage: "",
+      };
     });
   };
   handleSubmit = (event) => {
     event.preventDefault();
-      this.setState((prev) => {
-        return { ...prev, loading: true };
-      });
-    const body = {email:this.state.email,password:this.state.password };
-    axios.post("http://localhost:2021/login", body).then((response) => {
-      //console.log(response);
-      axios.post("http://localhost:2021/user", {email:this.state.email}).then((response) => {
-        this.props.dispatch(updateUserInfo(response.data.data));
-        this.setState((prev) => {
-          return { ...prev, loading: false };
-        });
-        // console.log(response.data.data.isEmailVarified);
-        if(!response.data.data.isEmailVarified){
-          this.props.history.push("/verify/email");
-        }
-        else {
-          this.props.history.push("/home");
-        }
-        
-      }).catch((error) => {
-        this.setState((prev) => {
-            return { ...prev, loading: false,errorMessage:error.response.data.message,error:true };
-          });
-      });
-    }
-    ).catch((error) => {
-        this.setState((prev) => {
-            return { ...prev, loading: false,errorMessage:error.response.data.message,error:true };
-          });
+    this.setState((prev) => {
+      return { ...prev, loading: true };
     });
+    const body = { email: this.state.email, password: this.state.password };
+    axios
+      .post("http://localhost:2021/login", body)
+      .then((response) => {
+        //console.log(response);
+        axios
+          .post("http://localhost:2021/user", { email: this.state.email })
+          .then((response) => {
+            this.props.dispatch(updateUserInfo(response.data.data));
+            this.setState((prev) => {
+              return { ...prev, loading: false };
+            });
+            // console.log(response.data.data.isEmailVarified);
+            if (!response.data.data.isEmailVarified) {
+              this.props.history.push("/verify/email");
+            } else {
+              this.props.history.push("/home");
+            }
+          })
+          .catch((error) => {
+            this.setState((prev) => {
+              return {
+                ...prev,
+                loading: false,
+                errorMessage: error.response.data.message,
+                error: true,
+              };
+            });
+          });
+      })
+      .catch((error) => {
+        this.setState((prev) => {
+          return {
+            ...prev,
+            loading: false,
+            errorMessage: error.response.data.message,
+            error: true,
+          };
+        });
+      });
+  };
+  handleForgetPassword = (event) => {
+    event.preventDefault();
+    this.props.history.push("/forgetpassword");
   };
 
   render() {
@@ -113,6 +141,18 @@ class LoginNewComponent extends Component {
               )}
             </Button>
           </Grid>
+          <Grid item xs={12} sm={12} className="buttonclass">
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className="forgetButton"
+              onClick={this.handleForgetPassword}
+            >
+              Forget Password
+            </Button>
+          </Grid>
         </Grid>
       </Grid>
     );
@@ -123,6 +163,4 @@ function mapStateToProps(state) {
     signupData: getSignupReducer(state),
   };
 }
-export const LoginNew = withRouter(
-  connect(mapStateToProps)(LoginNewComponent)
-);
+export const LoginNew = withRouter(connect(mapStateToProps)(LoginNewComponent));
