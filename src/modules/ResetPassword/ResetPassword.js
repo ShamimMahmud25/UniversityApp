@@ -247,7 +247,6 @@ class ResetPasswordComponent extends Component {
                   this.state.newPassword
                 );
               }}
-              onBlur={this.validationCheck}
               fullWidth
               type="password"
               error={this.state.errors.confirmPassword}

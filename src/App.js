@@ -15,6 +15,7 @@ import { Test } from "./modules/Registration/TestComponent";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import Home from "./modules/Home/Home";
+import { ForgetPassword } from "./modules/ForgetPassword/ForgetPassword";
 
 const theme = createTheme({
   palette: {
@@ -58,6 +59,9 @@ function App() {
             </Route>
             <Route exact path="/resetpassword">
               <ResetPassword/>
+            </Route>
+            <Route exact path="/forgetpassword">
+              <ForgetPassword/>
             </Route>
             <Route exact path="/home">
               <Home/>
