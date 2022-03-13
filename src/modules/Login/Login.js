@@ -14,6 +14,7 @@ import { CircularProgress } from '@material-ui/core';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { makeStyles } from '@mui/styles'
 import { useHistory } from 'react-router-dom';
+import {userServiceAPI} from "../../config/config";
 import axios from "axios";
 import { updateUserInfo } from "../Registration/action";
 import { getSignupReducer } from '../SignUp/reducer';
@@ -44,9 +45,9 @@ const LoginInComponent = (props) => {
     setLoading(true);
     const body = { email, password };
     console.log(body);
-    axios.post("http://localhost:2021/login", body).then((response) => {
+    axios.post(`${userServiceAPI}/login`, body).then((response) => {
       //console.log(response);
-      axios.post("http://localhost:2021/user", {email}).then((response) => {
+      axios.post(`${userServiceAPI}/user`, {email}).then((response) => {
         props.dispatch(updateUserInfo(response.data.data));
       }).catch((error) => {
         console.log();

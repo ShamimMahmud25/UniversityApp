@@ -15,6 +15,7 @@ import { connect } from "react-redux";
 import { useHistory } from 'react-router-dom';
 import { updateSignUpEmail } from './action';
 import axios from 'axios';
+import {userServiceAPI} from "../../config/config";
 
 
 const theme = createTheme();
@@ -37,7 +38,7 @@ const SignupComponent=props=> {
     setLoading(true);
     props.dispatch(updateSignUpEmail(email.trim()));
     const body={email:email.trim()};
-    axios.post("http://localhost:2021/email/validate", body).then((response) => {
+    axios.post(`${userServiceAPI}/email/validate`, body).then((response) => {
        console.log(response);
       setLoading(false);
       history.push("/register")

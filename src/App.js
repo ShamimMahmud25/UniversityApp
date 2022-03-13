@@ -14,7 +14,8 @@ import { Test } from "./modules/Registration/TestComponent";
 //import WithLayout from "./components/WithLayout";
 import { Provider } from "react-redux";
 import { store } from "./store";
-import Home from "./modules/Home/Home";
+// import Home from "./modules/Home/Home";
+import HomeNew from "./modules/Home/HomeNew"
 import { ForgetPassword } from "./modules/ForgetPassword/ForgetPassword";
 
 const theme = createTheme({
@@ -64,7 +65,7 @@ function App() {
               <ForgetPassword/>
             </Route>
             <Route exact path="/home">
-              <Home/>
+              <HomeNew/>
             </Route>
             <Route exact path="/create">
               <Create />
