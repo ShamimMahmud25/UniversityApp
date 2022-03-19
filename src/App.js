@@ -16,6 +16,7 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 // import Home from "./modules/Home/Home";
 import HomeNew from "./modules/Home/HomeNew"
+import SendMail from "./modules/SendMail/SendMail"
 import { ForgetPassword } from "./modules/ForgetPassword/ForgetPassword";
 
 const theme = createTheme({
@@ -66,6 +67,9 @@ function App() {
             </Route>
             <Route exact path="/home">
               <HomeNew/>
+            </Route>
+            <Route exact path="/sendmail">
+              <SendMail/>
             </Route>
             <Route exact path="/create">
               <Create />

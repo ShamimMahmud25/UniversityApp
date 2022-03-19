@@ -9,6 +9,7 @@ import {
     makeStyles
   } from "@material-ui/core";
   import { AddCircleOutlined,SubjectOutlined } from "@material-ui/icons";
+  import MailOutlineIcon from '@material-ui/icons/MailOutline';
   import VpnKeyIcon from '@material-ui/icons/VpnKey';
   import { useHistory, useLocation } from "react-router-dom";
   import LogoutIcon from '@mui/icons-material/Logout';
@@ -81,6 +82,11 @@ export default function Menu() {
         text: "Logout",
         icon: <LogoutIcon color="secondary" />,
         path: "/signup",
+      },
+      {
+        text: "SendMail",
+        icon: <MailOutlineIcon color="secondary" />,
+        path: "/sendmail",
       },
     
       // {
