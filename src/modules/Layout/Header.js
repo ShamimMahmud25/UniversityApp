@@ -1,8 +1,4 @@
-import {
-  makeStyles,
-  Typography,
-  Avatar,
-} from "@material-ui/core";
+import { makeStyles, Typography, Avatar } from "@material-ui/core";
 import React from "react";
 import { connect } from "react-redux";
 import { getUserReducer } from "../Registration/reducer";
@@ -19,20 +15,20 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-const HeaderComponent=(props)=> {
+const HeaderComponent = (props) => {
   // console.log(props.userData);
   const classes = useStyles();
   return (
     <>
-      <Typography className={classes.data}>Welcome To MyWebPage</Typography>
+      <Typography className={classes.data}>University App</Typography>
       <Typography>{props.userData.firstName}</Typography>
       <Avatar src="/mario-av.png" className={classes.avatar} />
     </>
   );
-}
-const mapStateToProps=state=>{
-  return{
-  userData:getUserReducer(state)
-  }
-}
-export const  Header=connect(mapStateToProps)(HeaderComponent)
+};
+const mapStateToProps = (state) => {
+  return {
+    userData: getUserReducer(state),
+  };
+};
+export const Header = connect(mapStateToProps)(HeaderComponent);
