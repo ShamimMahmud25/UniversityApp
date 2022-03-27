@@ -14,6 +14,7 @@ import SupervisorAccountOutlinedIcon from "@material-ui/icons/SupervisorAccountO
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import { useHistory, useLocation } from "react-router-dom";
 import LogoutIcon from "@mui/icons-material/Logout";
+import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => {
   return {
@@ -77,6 +78,11 @@ export default function Menu() {
       text: "SendMail",
       icon: <MailOutlineIcon color="secondary" />,
       path: "/sendmail",
+    },
+    {
+      text: "JobProfile",
+      icon: <WorkOutlineIcon color="secondary" />,
+      path: "/jobProfile",
     },
     {
       text: "ResetPassword",
