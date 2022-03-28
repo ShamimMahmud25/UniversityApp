@@ -34,7 +34,7 @@ class ForgetPasswordComponent extends Component {
       },
       email: this.props.signupData.emailAddress,
     //   email:"mahmudshamim366@grr.la",
-      isEmailVerified: false,
+      isEmailVarified: false,
     };
   }
   componentDidMount() {
@@ -104,7 +104,7 @@ class ForgetPasswordComponent extends Component {
   const body = {email:this.state.email,otp:this.state.code };
   axios.post(`${mailSendAPI}/verifyEmail`, body).then((response) => {
       this.setState((prev) => {
-        return { ...prev, loading: false,isEmailVerified:true };
+        return { ...prev, loading: false,isEmailVarified:true };
       });
   }
   ).catch((error) => {
@@ -243,13 +243,13 @@ class ForgetPasswordComponent extends Component {
         <Grid container item spacing={1} className="formContainer">
           <Grid item xs={12} sm={12}>
             <Typography className="heading">
-              {this.state.isEmailVerified
+              {this.state.isEmailVarified
                 ? "Please Reset Your Password"
                 : "6 digits verificationcode has been send to your email.Plese verify your email."}
             </Typography>
           </Grid>
           <Grid item xs={12} sm={12} className="passwordInput">
-            {this.state.isEmailVerified && (
+            {this.state.isEmailVarified && (
               <TextField
                 value={this.state.password}
                 label="Password"
@@ -264,7 +264,7 @@ class ForgetPasswordComponent extends Component {
                 helperText={this.state.errorMessage.password}
               />
             )}
-            {!this.state.isEmailVerified && (
+            {!this.state.isEmailVarified && (
               <TextField
                 value={this.state.email}
                 label="Email"
@@ -275,7 +275,7 @@ class ForgetPasswordComponent extends Component {
             )}
           </Grid>
           <Grid item xs={12} sm={12} className="confirmInput">
-            {this.state.isEmailVerified && (
+            {this.state.isEmailVarified && (
               <TextField
                 value={this.state.confirmPassword}
                 label="Confirm Password"
@@ -294,7 +294,7 @@ class ForgetPasswordComponent extends Component {
                 helperText={this.state.errorMessage.confirmPassword}
               />
             )}
-            {!this.state.isEmailVerified && (
+            {!this.state.isEmailVarified && (
               <TextField
                 value={this.state.code}
                 label="code"
@@ -310,7 +310,7 @@ class ForgetPasswordComponent extends Component {
             )}
           </Grid>
           <Grid item xs={12} sm={12} className="buttonclass">
-            {this.state.isEmailVerified && (
+            {this.state.isEmailVarified && (
               <Button
                 type="submit"
                 fullWidth
@@ -333,7 +333,7 @@ class ForgetPasswordComponent extends Component {
                 )}
               </Button>
             )}
-            {!this.state.isEmailVerified && (
+            {!this.state.isEmailVarified && (
               <Button
                 type="submit"
                 fullWidth

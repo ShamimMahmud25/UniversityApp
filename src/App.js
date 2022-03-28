@@ -18,7 +18,7 @@ import { store } from "./store";
 import HomeNew from "./modules/Home/HomeNew"
 import SendMail from "./modules/SendMail/SendMail"
 import UserProfile from "./modules/UserProfile/UserProfile";
-import JobProfile from "./modules/JobProfile/JobProfile"
+import {JobProfile} from "./modules/JobProfile/JobProfile"
 import { ForgetPassword } from "./modules/ForgetPassword/ForgetPassword";
 
 const theme = createTheme({
