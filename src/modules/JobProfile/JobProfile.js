@@ -1,64 +1,12 @@
 import { Grid, TextField, MenuItem } from "@material-ui/core";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./jobprofile.css";
 import Layout from "../Layout/NewLayout";
-
-const companyList = [
-  {
-    name: "select",
-  },
-  {
-    name: "Spring Rain Private Limited",
-  },
-  {
-    name: "BJIT",
-  },
-  {
-    name: "Samgsang",
-  },
-  {
-    name: "prosoftwarecompany",
-  },
-  {
-    name: "TigerIT",
-  },
-  {
-    name: "brainstation-23.",
-  },
-  {
-    name: "others",
-  },
-];
-const jobRolesList = [
-  {
-    name: "select",
-  },
-  {
-    name: "Software Engineer",
-  },
-  {
-    name: "Software Develope",
-  },
-  {
-    name: "Senior Software Engineer",
-  },
-  {
-    name: "prosoftwarecompany",
-  },
-  {
-    name: "Principal Software Engineer",
-  },
-  {
-    name: "Software Architect",
-  },
-  {
-    name: "Junior Software Developer",
-  },
-  {
-    name: "others",
-  },
-];
-export default function JobProfile() {
+import { getSignupReducer } from "../SignUp/reducer";
+import { getUserReducer } from "../Registration/reducer"
+import { connect } from "react-redux";
+import {companyList,jobRolesList} from "../../config/config"
+const JobProfileComponent=(props)=> {
   const [companyName, setCompanyName] = useState("select");
   const [jobRole, setJobRole] = useState("select");
   const [companyNameText, setCompanyNameText] = useState("");
@@ -70,12 +18,16 @@ export default function JobProfile() {
     jobRole: false,
   });
   const [helpText, setHelpText] = useState({
-    companyList: "Please select your company name",
+    companyList: "Please select current your company name",
     companyNameText: "",
-    jobRole: "Please select your Job Role",
+    jobRole: "Please select your currernt Job Role",
     jobRoleText: "",
     joinDate :"please choose your approximate joining date"
   });
+
+  useEffect(() => {
+    console.log(props);
+  }, [props]);
   const handleCompanyChange = (e) => {
     setCompanyName(e.target.value);
     if (e.target.value === "others") {
@@ -88,7 +40,7 @@ export default function JobProfile() {
       setHelpText((prev) => {
         return {
           ...prev,
-          companyNameText: "Please Type your Company Name",
+          companyNameText: "Please Type your current Company Name",
         };
       });
     } else {
@@ -124,7 +76,7 @@ export default function JobProfile() {
       setHelpText((prev) => {
         return {
           ...prev,
-          jobRoleText: "Please Type your Job Role",
+          jobRoleText: "Please Type your Current Job Role",
         };
       });
     } else {
@@ -251,3 +203,13 @@ export default function JobProfile() {
     </Layout>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    signupData: getSignupReducer(state),
+    userData: getUserReducer(state),
+  };
+};
+export const JobProfile = connect(mapStateToProps)(
+  JobProfileComponent
+);

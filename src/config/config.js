@@ -56,3 +56,58 @@ export const sessions = [
     },
   ];
   export const Allsessions=[...sessions,{value:"ALL"}];
+  export const companyList = [
+    {
+      name: "select",
+    },
+    {
+      name: "Spring Rain Private Limited",
+    },
+    {
+      name: "BJIT",
+    },
+    {
+      name: "Samgsang",
+    },
+    {
+      name: "prosoftwarecompany",
+    },
+    {
+      name: "TigerIT",
+    },
+    {
+      name: "brainstation-23.",
+    },
+    {
+      name: "others",
+    },
+  ];
+  export const jobRolesList = [
+    {
+      name: "select",
+    },
+    {
+      name: "Software Engineer",
+    },
+    {
+      name: "Software Develope",
+    },
+    {
+      name: "Senior Software Engineer",
+    },
+    {
+      name: "prosoftwarecompany",
+    },
+    {
+      name: "Principal Software Engineer",
+    },
+    {
+      name: "Software Architect",
+    },
+    {
+      name: "Junior Software Developer",
+    },
+    {
+      name: "others",
+    },
+  ];
