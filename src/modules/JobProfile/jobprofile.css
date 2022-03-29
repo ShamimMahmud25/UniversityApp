@@ -33,3 +33,15 @@
     margin-left: 200px;
    
 }
+.loading {
+    color: white;
+    position: "absolute";
+  }
+  .continueButton{
+    background-color: rgb(0, 110, 255) !important ;
+    color:black !important;
+    font-weight: 400;
+    font-size: large;
+    width: 50%;
+    margin-left: 200px;
+}
