@@ -1,17 +1,22 @@
-import { Grid, TextField, MenuItem } from "@material-ui/core";
+import { Grid, TextField, MenuItem, Button, CircularProgress, Typography } from "@material-ui/core";
 import React, { useState,useEffect } from "react";
 import "./jobprofile.css";
 import Layout from "../Layout/NewLayout";
 import { getSignupReducer } from "../SignUp/reducer";
 import { getUserReducer } from "../Registration/reducer"
 import { connect } from "react-redux";
-import {companyList,jobRolesList} from "../../config/config"
+import {companyList,jobRolesList,userServiceAPI} from "../../config/config";
+import { useHistory } from 'react-router-dom';
+import axios from "axios";
 const JobProfileComponent=(props)=> {
+  const history = useHistory();
   const [companyName, setCompanyName] = useState("select");
   const [jobRole, setJobRole] = useState("select");
   const [companyNameText, setCompanyNameText] = useState("");
   const [jobRoleText, setJobRoleText] = useState("");
   const [adviceText, setAdviceText] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [joinDate, setJoinDate] = useState((new Date()).toLocaleDateString('en-CA'));
   const [showOthers, setShowothers] = useState({
     companyName: false,
@@ -26,8 +31,10 @@ const JobProfileComponent=(props)=> {
   });
 
   useEffect(() => {
-    console.log(props);
-  }, [props]);
+    if(!props.userData.email){
+      history.push("/")
+    }
+  }, []);
   const handleCompanyChange = (e) => {
     setCompanyName(e.target.value);
     if (e.target.value === "others") {
@@ -112,7 +119,36 @@ const JobProfileComponent=(props)=> {
       };
     });
   };
-   
+  const handleSubmit=(event)=>{
+    event.preventDefault();
+    setLoading(true);
+    const body =
+      {
+        email: props.userData.email,
+       firstName:props.userData.firstName,
+       lastName:props.userData.lastName,
+       session:props.userData.session,
+       companyName : companyName!=="others" ? companyName : companyNameText,
+       jobRole : jobRole !=="others" ? jobRole : jobRoleText,
+       adviceText,
+       joinDate  
+   }
+    
+    axios.post(`${userServiceAPI}/jobinfo`, body).then((response) => {
+     setLoading(false);
+     history.push("/home")
+}
+).catch((error) => {
+  setLoading(false);
+  setError(error.response.data.message);
+});
+
+  }
+  const hasNoError=()=>{
+    const Name= companyName!=="others" ? companyName : companyNameText;
+    const Role = jobRole !== "others" ? jobRole :jobRoleText;
+    return Name!== "select" && Name!=="" && Role !== "select" && Role !== "" &&  adviceText !=="";
+  }
   return (
     <Layout>
       <Grid container className="jobcontainer">
@@ -199,6 +235,38 @@ const JobProfileComponent=(props)=> {
           
         />
            </Grid>
+           <Grid item xs={12}>
+           <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                className="continueButton"
+                onClick={handleSubmit}
+                disabled={loading || !hasNoError()}
+              >
+                {loading ? (
+                  <CircularProgress
+                    variant="indeterminate"
+                    disableShrink
+                    className="loading"
+                    size={24}
+                    thickness={5}
+                  />
+                ) : (
+                  "Countinue"
+                )}
+              </Button>
+              </Grid>
+              {
+                error && 
+                <Grid item xs={12}>
+                  <Typography variant="body">
+                    {
+                      error
+                    }
+                  </Typography>
+                  </Grid>
+              }
       </Grid>
     </Layout>
   );
