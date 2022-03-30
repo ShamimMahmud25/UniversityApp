@@ -33,8 +33,8 @@ export const validate = (Name, value) => {
           }
     } else {
       return {
-        isValid: false,
-        message: "Last Name Required",
+        isValid: true,
+        message: "",
       };
     }
   }
@@ -97,8 +97,8 @@ export const validate = (Name, value) => {
   }
   else {
     return {
-        isValid: false,
-        message: "Mobile Number is Required",
+        isValid: true,
+        message: "",
       };
   }
   }

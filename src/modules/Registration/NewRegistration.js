@@ -68,9 +68,9 @@ const NewRegistrationComponent = (props) => {
   const [email, setEmail] = useState(props.signupData.emailAddress);
   const [error,setError]=useState({
     firstName:null,
-    lastName:null,
+    lastName:false,
     address:null,
-    mobile:null,
+    mobile:false,
     session:false,
     password:null,
     studentID:false,
