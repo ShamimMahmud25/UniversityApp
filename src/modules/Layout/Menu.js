@@ -15,6 +15,7 @@ import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import { useHistory, useLocation } from "react-router-dom";
 import LogoutIcon from "@mui/icons-material/Logout";
 import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
+import WorkHistoryTwoToneIcon from '@mui/icons-material/WorkHistoryTwoTone';
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => {
   return {
@@ -83,6 +84,11 @@ export default function Menu() {
       text: "JobProfile",
       icon: <WorkOutlineIcon color="secondary" />,
       path: "/jobProfile",
+    },
+    {
+      text: "UsersJobDescription",
+      icon: <WorkHistoryTwoToneIcon color="secondary" />,
+      path: "/jobProfiles",
     },
     {
       text: "ResetPassword",

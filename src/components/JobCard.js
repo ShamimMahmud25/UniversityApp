@@ -11,24 +11,30 @@ import { blue, green, pink, yellow, orange } from "@material-ui/core/colors";
 const useStyles = makeStyles({
   avatar: {
     backgroundColor: (user) => {
-      if (user.firstName[0] === "R") {
+      if (user.companyName[0] === "R") {
         return yellow[700];
       }
-      if (user.firstName[0] === "S") {
+      if (user.companyName[0] === "S") {
         return green[500];
       }
-      if (user.firstName[0] === "T") {
+      if (user.companyName[0] === "T") {
         return pink[500];
       }
-      if (user.firstName[0] === "J") {
+      if (user.companyName[0] === "J") {
         return orange[500];
       }
       return blue[500];
     },
   },
+  adviceText :{
+      marginTop:'20px',
+      fontWeight:"bold",
+      fontStyle:"italic",
+      color:"black"
+  }
 });
 
-export default function UserCard({ user }) {
+export default function JobCard({ user }) {
   const classes = useStyles(user);
   return (
     <>
@@ -36,24 +42,24 @@ export default function UserCard({ user }) {
         <CardHeader
           avatar={
             <Avatar className={classes.avatar}>
-              {user.firstName[0].toUpperCase()}
+              {user.companyName[0].toUpperCase()}
             </Avatar>
           }
-          title={`${user.firstName} ${user.lastName}`}
-          subheader={user.session}
+          title={`${user.jobRole} at ${user.companyName}`}
+          subheader={`Joined : ${user.joinDate}`}
         />
         <CardContent>
-          <Typography variant="body2" color="textSecondary">
-            {`email: ${user.email}`}
+          <Typography variant="body2" >
+            {`Name: ${user.firstName} ${user.lastName}`}
           </Typography>
-          <Typography variant="body2" color="textSecondary">
-            {`mobile : ${user.mobile}`}
+          <Typography variant="body2" >
+            {`Email: ${user.email}`}
           </Typography>
-          <Typography variant="body2" color="textSecondary">
-            {`address : ${user.address}`}
+          <Typography variant="body2">
+            {`session : ${user.session}`}
           </Typography>
-          <Typography variant="body2" color="textSecondary">
-            {`studentID: ${user.studentID}`}
+          <Typography variant="body2" className={classes.adviceText}>
+            {`"${user.adviceText}"`}
           </Typography>
         </CardContent>
       </Card>
