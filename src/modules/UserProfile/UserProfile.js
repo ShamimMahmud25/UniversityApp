@@ -6,9 +6,7 @@ import {
   TextField,
   Button,
 } from "@material-ui/core";
-// import NoteCard from '../../components/NoteCard';
 import UserCard from "../../components/UserCard";
-// import Masonry from 'react-masonry-css'
 import Layout from "../Layout/NewLayout";
 import axios from "axios";
 import { userServiceAPI, sessions } from "../../config/config";

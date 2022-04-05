@@ -18,7 +18,8 @@ import { store } from "./store";
 import HomeNew from "./modules/Home/HomeNew"
 import SendMail from "./modules/SendMail/SendMail"
 import UserProfile from "./modules/UserProfile/UserProfile";
-import {JobProfile} from "./modules/JobProfile/JobProfile"
+import {JobProfile} from "./modules/JobProfile/JobProfile";
+import JobProfiles from "./modules/JobProfiles/JobProfiles"
 import { ForgetPassword } from "./modules/ForgetPassword/ForgetPassword";
 
 const theme = createTheme({
@@ -78,6 +79,9 @@ function App() {
             </Route>
             <Route exact path="/jobProfile">
               <JobProfile/>
+            </Route>
+            <Route exact path="/jobProfiles">
+              <JobProfiles/>
             </Route>
             <Route exact path="/create">
               <Create />
