@@ -10,7 +10,7 @@ import axios from "axios";
 import {userServiceAPI} from "../../config/config";
 import { Grid, Typography, Button, CircularProgress, MenuItem} from "@material-ui/core";
 import { validate } from "../../components/validation";
-import {sessions} from "../../config/config"
+import {sessions,userTypes} from "../../config/config"
 
 
 const useStyles = makeStyles((theme) => {
@@ -55,6 +55,8 @@ const useStyles = makeStyles((theme) => {
 const NewRegistrationComponent = (props) => {
   const classes = useStyles();
   const history = useHistory();
+  const [userType, setUserType] = useState("Student");
+  const [designation, setDesignation] = useState("");
   const [firstName, setfirstName] = useState("");
   const [loading, setLoading] = useState(false);
   const [registrationError, setRegistrationError] = useState("");
@@ -144,6 +146,9 @@ const NewRegistrationComponent = (props) => {
     setPassword(e.target.value);
     setRegistrationError("");
   };
+  const handleDesignation = (e) => {
+    setDesignation(e.target.value);
+  };
   const handlestudentID = (e) => {
     setstudentID(e.target.value);
     setRegistrationError("");
@@ -186,6 +191,9 @@ const NewRegistrationComponent = (props) => {
     return (error.firstName===false && error.lastName===false && error.address===false && error.email===false &&
     error.mobile===false && error.studentID===false && error.password===false && error.confirmPassword===false); 
   }
+   const handleUserType= (e) => {
+    setUserType(e.target.value);
+  };
 
   return (
     <Grid container className={classes.container}>
@@ -196,6 +204,24 @@ const NewRegistrationComponent = (props) => {
           </Typography>
         </Grid>
         <Grid item container className={classes.Info} spacing={2}>
+        <Grid item xs={12}>
+            <TextField
+              label="UserType"
+              select
+              value={userType}
+              onChange={handleUserType}
+              size="small"
+              fullWidth
+              variant="outlined"
+              disabled={loading}
+            >
+                 {userTypes.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.value}
+            </MenuItem>
+          ))}
+            </TextField>
+          </Grid>
           <Grid item xs={12}>
             <TextField
               label="FirstName"
@@ -268,7 +294,7 @@ const NewRegistrationComponent = (props) => {
               disabled={loading}
             ></TextField>
           </Grid>
-          <Grid item xs={12}>
+         {userType==="Student" ? (<><Grid item xs={12}>
             <TextField
               label="Session"
               select
@@ -299,7 +325,18 @@ const NewRegistrationComponent = (props) => {
               helperText={errorMessage.studentID}
               disabled={loading}
             ></TextField>
-          </Grid>
+          </Grid></>) : (<Grid item xs={12}>
+            <TextField
+              label="Designation"
+              value={designation}
+              autoComplete="off"
+              onChange={handleDesignation}
+              size="small"
+              fullWidth
+              variant="outlined"
+              disabled={loading}
+            ></TextField>
+          </Grid>)}
           <Grid item xs={12}>
             <TextField
               label="Password"

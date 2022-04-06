@@ -1,0 +1,9 @@
+.filecontainer {
+    justify-content: center;
+    padding-left: 400px;
+    background-color :azure;
+}
+.heading{
+    margin-top: 50px !important;
+    margin-bottom: 30px !important;
+}
