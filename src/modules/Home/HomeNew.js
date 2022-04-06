@@ -41,7 +41,7 @@ export default function RecipeReviewCard() {
     <Layout>
     <Card className={classes.root}>
       <CardHeader
-        title="About this App"
+        title="About"
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">

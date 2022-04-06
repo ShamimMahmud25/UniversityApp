@@ -20,6 +20,7 @@ import SendMail from "./modules/SendMail/SendMail"
 import UserProfile from "./modules/UserProfile/UserProfile";
 import {JobProfile} from "./modules/JobProfile/JobProfile";
 import JobProfiles from "./modules/JobProfiles/JobProfiles"
+import Files from "./modules/Files/Files"
 import { ForgetPassword } from "./modules/ForgetPassword/ForgetPassword";
 
 const theme = createTheme({
@@ -82,6 +83,9 @@ function App() {
             </Route>
             <Route exact path="/jobProfiles">
               <JobProfiles/>
+            </Route>
+            <Route exact path="/files">
+              <Files/>
             </Route>
             <Route exact path="/create">
               <Create />

@@ -16,6 +16,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import LogoutIcon from "@mui/icons-material/Logout";
 import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
 import WorkHistoryTwoToneIcon from '@mui/icons-material/WorkHistoryTwoTone';
+import AddToDriveIcon from '@mui/icons-material/AddToDrive';
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => {
   return {
@@ -89,6 +90,11 @@ export default function Menu() {
       text: "UsersJobDescription",
       icon: <WorkHistoryTwoToneIcon color="secondary" />,
       path: "/jobProfiles",
+    },
+    {
+      text: "Files",
+      icon: <AddToDriveIcon color="secondary" />,
+      path: "/files",
     },
     {
       text: "ResetPassword",

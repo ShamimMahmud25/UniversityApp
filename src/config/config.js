@@ -111,3 +111,11 @@ export const sessions = [
       name: "others",
     },
   ];
+export const userTypes=[
+  {
+    value:"Student"
+  },
+  {
+    value:"Teacher"
+  }
+]
