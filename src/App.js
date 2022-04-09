@@ -19,7 +19,8 @@ import HomeNew from "./modules/Home/HomeNew"
 import SendMail from "./modules/SendMail/SendMail"
 import UserProfile from "./modules/UserProfile/UserProfile";
 import {JobProfile} from "./modules/JobProfile/JobProfile";
-import JobProfiles from "./modules/JobProfiles/JobProfiles"
+import JobProfiles from "./modules/JobProfiles/JobProfiles";
+import TeachersProfile from "./modules/TeachersProfile/TeachersProfile"
 import Files from "./modules/Files/Files"
 import { ForgetPassword } from "./modules/ForgetPassword/ForgetPassword";
 
@@ -86,6 +87,9 @@ function App() {
             </Route>
             <Route exact path="/files">
               <Files/>
+            </Route>
+            <Route exact path="/teachers">
+              <TeachersProfile/>
             </Route>
             <Route exact path="/create">
               <Create />

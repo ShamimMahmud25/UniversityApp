@@ -63,7 +63,7 @@ const NewRegistrationComponent = (props) => {
   const [lastName, setlastName] = useState("");
   const [address, setAddress] = useState("");
   const [mobile, setMobile] = useState("");
-  const [session, setSession] = useState("2000-2001");
+  const [session, setSession] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
   const [studentID, setstudentID] = useState("");
@@ -102,7 +102,11 @@ const NewRegistrationComponent = (props) => {
       password,
       studentID,
       email,
+      userType
     };
+    if(userType==="Teacher"){
+      Data.designation=designation;
+    }
     axios
       .post(`${userServiceAPI}/signup`, Data)
       .then((response) => {
