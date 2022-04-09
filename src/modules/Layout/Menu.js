@@ -17,6 +17,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
 import WorkHistoryTwoToneIcon from '@mui/icons-material/WorkHistoryTwoTone';
 import AddToDriveIcon from '@mui/icons-material/AddToDrive';
+import GroupsIcon from '@mui/icons-material/Groups';
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => {
   return {
@@ -72,9 +73,14 @@ export default function Menu() {
       path: "/home",
     },
     {
-      text: "People",
+      text: "Students",
       icon: <SupervisorAccountOutlinedIcon color="secondary" />,
       path: "/userProfile",
+    },
+    {
+      text: "Teachers",
+      icon: <GroupsIcon color="secondary" />,
+      path: "/teachers",
     },
     {
       text: "SendMail",

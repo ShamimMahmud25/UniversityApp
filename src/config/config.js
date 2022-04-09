@@ -90,7 +90,7 @@ export const sessions = [
       name: "Software Engineer",
     },
     {
-      name: "Software Develope",
+      name: "Software Developer",
     },
     {
       name: "Senior Software Engineer",

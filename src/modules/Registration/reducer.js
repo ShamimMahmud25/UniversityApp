@@ -8,7 +8,9 @@ const initialState={
     session:'',
     studentID:'',
     email:'',
-    isEmailVarified:false
+    isEmailVarified:false,
+    userType:"Student",
+    designation:""
 
 }
 
@@ -23,7 +25,8 @@ switch(action.type){
         session:action.userData.session,
         studentID:action.userData.studentID,
         email:action.userData.email,
-        isEmailVarified:action.userData.isEmailVarified
+        isEmailVarified:action.userData.isEmailVarified,
+        userType:action.userData.userType,
         
     }
     case USER_EMAIL_VERIFIED: return {

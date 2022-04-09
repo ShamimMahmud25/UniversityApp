@@ -20,7 +20,7 @@ export default function Files() {
                     <FolderIcon />
                   </ListItemIcon>
                     <ListItemText>
-                        <a href="https://drive.google.com/file/d/1a0hnc6_CfreUwdNbLZeROeRH1A8qrthT/view?usp=sharing" target="_blank"  rel="noreferrer noopener" download>File1</a>
+                        <a href="https://drive.google.com/uc?export=download&amp;id=1a0hnc6_CfreUwdNbLZeROeRH1A8qrthT" target="_blank"  rel="noreferrer noopener" download>File1</a>
                     </ListItemText>
                 </ListItem>
                 <ListItem>
@@ -28,7 +28,7 @@ export default function Files() {
                     <FolderIcon />
                   </ListItemIcon>
                     <ListItemText>
-                        <a href="https://drive.google.com/file/d/1a0hnc6_CfreUwdNbLZeROeRH1A8qrthT/view?usp=sharing" target="_blank"  rel="noreferrer noopener">File2</a>
+                        <a href="https://drive.google.com/uc?export=download&amp;id=1kHv83xjYCy_W6XGOVmN5ZBQ8tw18vGla" target="_blank"  rel="noreferrer noopener">File2</a>
                     </ListItemText>
                 </ListItem>
                 <ListItem>
@@ -36,7 +36,7 @@ export default function Files() {
                     <FolderIcon />
                   </ListItemIcon>
                     <ListItemText>
-                        <a href="https://drive.google.com/file/d/1a0hnc6_CfreUwdNbLZeROeRH1A8qrthT/view?usp=sharing"  target="_blank"  rel="noreferrer noopener">File3</a>
+                        <a href="https://drive.google.com/uc?export=download&amp;id=1kHv83xjYCy_W6XGOVmN5ZBQ8tw18vGla"  target="_blank"  rel="noreferrer noopener">File3</a>
                     </ListItemText>
                 </ListItem>
                 <ListItem>
@@ -44,7 +44,7 @@ export default function Files() {
                     <FolderIcon />
                   </ListItemIcon>
                     <ListItemText>
-                        <a href="https://drive.google.com/file/d/1a0hnc6_CfreUwdNbLZeROeRH1A8qrthT/view?usp=sharing"  target="_blank"  rel="noreferrer noopener">File4</a>
+                        <a href="https://drive.google.com/uc?export=download&amp;id=1kHv83xjYCy_W6XGOVmN5ZBQ8tw18vGla"  target="_blank"  rel="noreferrer noopener">File4</a>
                     </ListItemText>
                 </ListItem>
                 <ListItem>
@@ -52,7 +52,7 @@ export default function Files() {
                     <FolderIcon />
                   </ListItemIcon>
                     <ListItemText>
-                        <a href="https://drive.google.com/file/d/1a0hnc6_CfreUwdNbLZeROeRH1A8qrthT/view?usp=sharing"  target="_blank"  rel="noreferrer noopener">File5</a>
+                        <a href="https://drive.google.com/uc?export=download&amp;id=1kHv83xjYCy_W6XGOVmN5ZBQ8tw18vGla"  target="_blank"  rel="noreferrer noopener">File5</a>
                     </ListItemText>
                 </ListItem>
                  <ListItem>
@@ -60,7 +60,7 @@ export default function Files() {
                     <FolderIcon />
                   </ListItemIcon>
                     <ListItemText>
-                        <a href="https://drive.google.com/file/d/1a0hnc6_CfreUwdNbLZeROeRH1A8qrthT/view?usp=sharing" target="_blank"  rel="noreferrer noopener">File6</a>
+                        <a href="https://drive.google.com/uc?export=download&amp;id=1kHv83xjYCy_W6XGOVmN5ZBQ8tw18vGla" target="_blank"  rel="noreferrer noopener">File6</a>
                     </ListItemText>
                 </ListItem>
                 <ListItem>
@@ -68,7 +68,7 @@ export default function Files() {
                     <FolderIcon />
                   </ListItemIcon>
                     <ListItemText>
-                        <a href="https://drive.google.com/file/d/1a0hnc6_CfreUwdNbLZeROeRH1A8qrthT/view?usp=sharing" target="_blank"  rel="noreferrer noopener">File7</a>
+                        <a href="https://drive.google.com/uc?export=download&amp;id=1kHv83xjYCy_W6XGOVmN5ZBQ8tw18vGla" target="_blank"  rel="noreferrer noopener">File7</a>
                     </ListItemText>
                 </ListItem>
                 <ListItem>
@@ -76,7 +76,7 @@ export default function Files() {
                     <FolderIcon />
                   </ListItemIcon>
                     <ListItemText>
-                        <a href="https://drive.google.com/file/d/1a0hnc6_CfreUwdNbLZeROeRH1A8qrthT/view?usp=sharing" target="_blank"  rel="noreferrer noopener">File8</a>
+                        <a href="https://drive.google.com/uc?export=download&amp;id=1kHv83xjYCy_W6XGOVmN5ZBQ8tw18vGla" target="_blank"  rel="noreferrer noopener">File8</a>
                     </ListItemText>
                 </ListItem>
             </List>
