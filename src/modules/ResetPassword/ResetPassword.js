@@ -80,7 +80,7 @@ class ResetPasswordComponent extends Component {
           password:this.state.password,
           newPassword:this.state.newPassword
       }
-      axios.post(`${userServiceAPI}/resetPassword`, body).then((response) => {
+      axios.put(`${userServiceAPI}/resetPassword`, body).then((response) => {
         this.setState((prev) => {
             return { ...prev, loading: false };
           });

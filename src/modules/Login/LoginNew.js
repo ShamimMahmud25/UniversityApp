@@ -50,7 +50,7 @@ class LoginNewComponent extends Component {
       .then((response) => {
         //console.log(response);
         axios
-          .post(`${userServiceAPI}/user`, { email: this.state.email })
+          .get(`${userServiceAPI}/user/${this.state.email }`)
           .then((response) => {
             this.props.dispatch(updateUserInfo(response.data.data));
             this.setState((prev) => {

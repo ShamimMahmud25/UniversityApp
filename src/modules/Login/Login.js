@@ -47,7 +47,7 @@ const LoginInComponent = (props) => {
     console.log(body);
     axios.post(`${userServiceAPI}/login`, body).then((response) => {
       //console.log(response);
-      axios.post(`${userServiceAPI}/user`, {email}).then((response) => {
+      axios.get(`${userServiceAPI}/user/${email}`).then((response) => {
         props.dispatch(updateUserInfo(response.data.data));
       }).catch((error) => {
         console.log();
