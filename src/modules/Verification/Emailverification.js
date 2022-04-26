@@ -50,7 +50,7 @@ class EmailVerificationComponent extends Component {
     });
   const body = {email:this.state.email,otp:this.state.code };
   axios.post(`${mailSendAPI}/verifyEmail`, body).then((response) => {
-    axios.post(`${userServiceAPI}/emailVerificationInfo`,{email:this.state.email}).then((resposne)=>{
+    axios.put(`${userServiceAPI}/emailVerificationInfo`,{email:this.state.email}).then((resposne)=>{
       this.props.dispatch( userEmailVerified());
       this.setState((prev) => {
         return { ...prev, loading: false };

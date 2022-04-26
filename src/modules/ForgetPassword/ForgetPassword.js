@@ -134,7 +134,7 @@ class ForgetPasswordComponent extends Component {
           email:this.state.email,
           password:this.state.password,
       }
-          axios.post(`${userServiceAPI}/forgetPassword`, body).then((response) => {
+          axios.put(`${userServiceAPI}/forgetPassword`, body).then((response) => {
             this.setState((prev) => {
                 return { ...prev, loading: false };
               });
