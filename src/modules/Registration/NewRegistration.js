@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { makeStyles, TextField } from "@material-ui/core";
+import {  TextField } from "@material-ui/core";
 import { getSignupReducer } from "../SignUp/reducer";
 import { getUserReducer } from "./reducer";
 import { updateUserInfo } from "./action";
@@ -10,50 +10,10 @@ import axios from "axios";
 import {userServiceAPI} from "../../config/config";
 import { Grid, Typography, Button, CircularProgress, MenuItem} from "@material-ui/core";
 import { validate } from "../../components/validation";
-import {sessions,userTypes} from "../../config/config"
-
-
-const useStyles = makeStyles((theme) => {
-  return {
-    container: {
-      background: "#A9A9A9",
-      // display:'flex',
-      justifyContent: "center",
-    },
-    formContainer: {
-      margin: "0% 20% 0% 20%",
-      fontSize: "15px",
-      background: "white",
-      borderRadius: "10px",
-      boxShadow: "0px 0px 8px 5px rgba(0, 0, 0, .4)",
-      display: "flex",
-      flexDirection: "row",
-    },
-    errormessage: {
-      fontSize: 20,
-      color: "#FF0000",
-    },
-    header: {
-      textAlign: "center",
-      fontSize: "1.5rem",
-      marginTop: "10px",
-      maxHeight: "150px",
-    },
-    Info: {
-      margin: "0% 25% 0% 20%",
-    },
-    loading: {
-      color: "white",
-      position: "absolute",
-    },
-    continueButton :{
-      background:'green'
-    }
-  };
-});
+import {sessions,userTypes} from "../../config/config";
+import "./registration.css"
 
 const NewRegistrationComponent = (props) => {
-  const classes = useStyles();
   const history = useHistory();
   const [userType, setUserType] = useState("Student");
   const [designation, setDesignation] = useState("");
@@ -200,14 +160,14 @@ const NewRegistrationComponent = (props) => {
   };
 
   return (
-    <Grid container className={classes.container}>
-      <Grid item container className={classes.formContainer}>
+    <Grid container className="registration-container">
+      <Grid item container className="formContainer">
         <Grid item xs={12}>
-          <Typography varient="h3" className={classes.header}>
+          <Typography varient="h3" className="header">
             Registraion Form
           </Typography>
         </Grid>
-        <Grid item container className={classes.Info} spacing={2}>
+        <Grid item container className="Info" spacing={2}>
         <Grid item xs={12}>
             <TextField
               label="UserType"
@@ -378,7 +338,7 @@ const NewRegistrationComponent = (props) => {
               type="submit"
               fullWidth
               variant="contained"
-              className={classes.continueButton}
+              className="continueButton"
               onClick={handleSubmit}
               disabled={loading ||!hasNoError()}
             >
@@ -386,7 +346,7 @@ const NewRegistrationComponent = (props) => {
                 <CircularProgress
                   variant="indeterminate"
                   disableShrink
-                  className={classes.loading}
+                  className="loading"
                   size={24}
                   thickness={5}
                 />
@@ -394,7 +354,7 @@ const NewRegistrationComponent = (props) => {
                 "Continue"
               )}
             </Button>
-            <div className={classes.errormessage}>
+            <div className="errormessage">
             {registrationError}
           </div>
           </Grid>

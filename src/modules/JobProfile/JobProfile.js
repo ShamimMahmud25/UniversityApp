@@ -34,7 +34,7 @@ const JobProfileComponent=(props)=> {
     if(!props.userData.email){
       history.push("/")
     }
-  }, []);
+  });
   const handleCompanyChange = (e) => {
     setCompanyName(e.target.value);
     if (e.target.value === "others") {
