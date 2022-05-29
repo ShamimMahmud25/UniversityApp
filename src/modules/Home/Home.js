@@ -10,7 +10,6 @@ fetch('http://localhost:3000/notes')
 .then(res=>res.json()).then(data=>SetNotes(data))
   },[])
   const handleDelete=async(id)=>{
-    console.log(id);
     await fetch('http://localhost:3000/notes/'+id,{
       method:'DELETE'
     })

@@ -44,13 +44,10 @@ const LoginInComponent = (props) => {
     event.preventDefault();
     setLoading(true);
     const body = { email, password };
-    console.log(body);
     axios.post(`${userServiceAPI}/login`, body).then((response) => {
-      //console.log(response);
       axios.get(`${userServiceAPI}/user/${email}`).then((response) => {
         props.dispatch(updateUserInfo(response.data.data));
       }).catch((error) => {
-        console.log();
         setLoginError(error.response.data.message);
         setLoading(false);
       });
@@ -59,7 +56,6 @@ const LoginInComponent = (props) => {
       history.push("/home")
     }
     ).catch((error) => {
-      console.log(error.response.data);
       setLoginError(error.response.data.message);
       setLoading(false);
     });

@@ -84,7 +84,6 @@ const RegistrationComponent = (props) => {
     axios.post(`${userServiceAPI}/signup`, Data)
     .then(response => {
           props.dispatch(updateUserInfo(Data));
-          console.log(response.status);
           setRegistrationError('');
           history.push("/home");
     })

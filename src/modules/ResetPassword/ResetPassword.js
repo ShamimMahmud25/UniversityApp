@@ -242,7 +242,6 @@ class ResetPasswordComponent extends Component {
               variant="outlined"
               onChange={(event) => {
                 this.handleConfirmPassword(event);
-                console.log(this.state.confirmPassword);
                 this.validateConfirmPassword(
                   event.target.value,
                   this.state.newPassword

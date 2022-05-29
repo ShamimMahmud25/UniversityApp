@@ -23,7 +23,6 @@ export default function JobProfiles() {
       .then((response) => {
         setUserJobError("");
         setUsersJobInfo(response.data.data);
-        //console.log(response.data.data)
       })
       .catch((err) => {
         setUserJobError(err.response.data);

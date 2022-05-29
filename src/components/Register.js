@@ -65,8 +65,6 @@ const RegistrationComponent=(props)=> {
   }, [props]);
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Registration form is submitted");
-    console.log({firstName,lastName,address,mobile,session,password,sID})
   };
   const handlefirstName=(e)=>{
       setfirstName(e.target.value)
