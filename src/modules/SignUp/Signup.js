@@ -28,7 +28,6 @@ const useStyles=makeStyles(()=>{
 }
 })
 const SignupComponent=props=> {
-  console.log(props);
   const classes=useStyles();
   const [email,setEmail]=useState("");
   const [loading,setLoading]=useState(false);
@@ -39,7 +38,6 @@ const SignupComponent=props=> {
     props.dispatch(updateSignUpEmail(email.trim()));
     const body={email:email.trim()};
     axios.post(`${userServiceAPI}/email/validate`, body).then((response) => {
-       console.log(response);
       setLoading(false);
       history.push("/register")
   }).catch((error) =>{

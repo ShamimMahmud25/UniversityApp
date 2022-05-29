@@ -71,7 +71,6 @@ const NewRegistrationComponent = (props) => {
       .post(`${userServiceAPI}/signup`, Data)
       .then((response) => {
         props.dispatch(updateUserInfo(Data));
-        console.log(response.status);
         setRegistrationError("");
         setLoading(false);
         history.push("/verify/email");
@@ -79,7 +78,6 @@ const NewRegistrationComponent = (props) => {
       .catch((error) => {
         setLoading(false);
         setRegistrationError(error.response.data.message);
-        console.log(error.response.data);
       });
   };
   const handlefirstName = (e) => {

@@ -224,7 +224,7 @@ const hasNoError=()=>{
           color="secondary"
           fullWidth
           error={error.subjectError}
-          helpText={errorMessage.subjectError}
+          helperText={errorMessage.subjectError}
         />
             <TextField
           onChange={handleMailBody}
@@ -240,7 +240,7 @@ const hasNoError=()=>{
           rows={8}
           fullWidth
           error={error.bodyError}
-          helpText={errorMessage.bodyError}
+          helperText={errorMessage.bodyError}
         />
         <TextField
           onChange={handleMailFooter}
